@@ -1,1 +1,1 @@
-!!!ATTENTION !!! This file existsts only for operational actionsand and should be strictly deleated before "PULL/REQUEST" or "MERGE" actions. 
+!!!ATTENTION !!! This file existsts only for operational actions and should be strictly deleated before "PULL/REQUEST" or "MERGE" actions. 
