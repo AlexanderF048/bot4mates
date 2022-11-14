@@ -16,14 +16,14 @@ class NoteBase(UserDict):
         return f"{self.values()}" 
   
 
-class Tag:
+class Marker:
     def __init__(self):
         self.note_id=str(uuid.uuid1()) #Автоматически будет присвоен уникальный токен UUID1 формата
         self.note_tag=[]
         self.note_keyword=""
     
 
-class NoteRecord(Tag):
+class NoteRecord(Marker):
     def __init__(self):
         super().__init__() #Подтягиваем __init__ из Tag
         self.note_data: str  = "" 
