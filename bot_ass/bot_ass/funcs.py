@@ -1,6 +1,7 @@
-from class_rep import AddressBook, Record, Phone, Birthday
+from classes import AddressBook, Record
 import pickle
 import os
+import task11_alt
 
 
 def creation_adressbook():
@@ -24,6 +25,8 @@ def input_error(handler):
 			return 'Try again'
 		except TypeError:
 			return 'Give me name and phone please'
+		except OSError:
+			return 'Paste link in correct format e.g.: C:\\foo\\bar '
 	return wrapper
 
 
@@ -248,6 +251,12 @@ add/edit/remove birthday\nadd/edit/remove email\nadd/edit/remove address: \n')
 			return remove_email(name, CONTACTS[name])
 
 
+@input_error
+def sort_dir_func():
+	path = input('Please paste the "path" to the folder to sort it: ')
+	task11_alt.sorting_dir_files(path)
+
+
 def change_input(user_input):
 	new_input = user_input
 	data = ''
@@ -266,7 +275,7 @@ def reaction_func(reaction):
 
 
 def break_func():
-    return 'Wrong enter.'
+	return 'Wrong enter.'
 
 
 def create_data(data):
@@ -288,7 +297,8 @@ COMMANDS = {
 'find contact': search_contacts_func,
 'create contact' : create_contact_func,
 'remove contact' : remove_contact_func,
-'edit contact' : edit_contact_func
+'edit contact' : edit_contact_func,
+'sort by path' : sort_dir_func
 }
 
 @input_error
@@ -303,4 +313,4 @@ def main():
 
 if __name__ == '__main__':
 	creation_adressbook()
-	main()from classes import *
+	main()
