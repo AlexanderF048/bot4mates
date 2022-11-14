@@ -71,7 +71,7 @@ def add_note():
     input_data_2=input(Fore.BLUE +'Would you like to save your note in stream? ' + Fore.GREEN + 'yes'+ Fore.BLUE + '/' + Fore.RED + 'no' + Fore.GREEN + '\n>>>' + Style.RESET_ALL)
     if input_data_2 == 'yes':
         cl_notebase_input=NOTEBASE.add_record(new_note)
-        print("{:*^40}".format("Your was saved in stream"))
+        print(Fore.BLUE +"{:*^40}".format("Your note were saved in stream")+ Style.RESET_ALL)
         print(NOTEBASE)
 
 def find_in_note():
