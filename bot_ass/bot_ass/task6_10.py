@@ -68,7 +68,7 @@ def add_note():
            
 
     
-    input_data_2=input(Fore.BLUE +'Would you like to save your note in stream?' + Fore.GREEN + 'yes'+ Fore.BLUE + '/' + Fore.RED + 'no' + Fore.GREEN + '\n>>>' + Style.RESET_ALL)
+    input_data_2=input(Fore.BLUE +'Would you like to save your note in stream? ' + Fore.GREEN + 'yes'+ Fore.BLUE + '/' + Fore.RED + 'no' + Fore.GREEN + '\n>>>' + Style.RESET_ALL)
     if input_data_2 == 'yes':
         cl_notebase_input=NOTEBASE.add_record(new_note)
         print("{:*^40}".format("Your was saved in stream"))
@@ -106,14 +106,19 @@ def burn_base():
     print(Fore.RED +"{:-^70}".format("BASE TOTALY BURNED")+ Style.RESET_ALL)
 
 def change_note():
-    input_data=input(Fore.BLUE +'Please, input the note ID, you want to de changed:'+ Fore.GREEN + '\n>>>'+ Style.RESET_ALL)
+    
     while True:
+        input_data=input(Fore.BLUE +'Please, input the note ID, you want to de changed:'+ Fore.GREEN + '\n>>>'+ Style.RESET_ALL)
         if input_data in NOTEBASE.keys():
             input_data_2=input(Fore.BLUE +'Please, input new content:'+ Fore.GREEN + '\n>>>'+ Style.RESET_ALL)
             if input(Fore.BLUE +'You shure, you want to save changes? '+ Fore.GREEN + 'yes'+ Fore.BLUE + '/' + Fore.RED + 'no' + Fore.GREEN + '\n>>>' + Style.RESET_ALL) == "yes":
                 NOTEBASE[input_data].note_data=input_data_2
                 print(Fore.BLUE +f"\nRecord {input_data} sucsessfuly changed."+ Style.RESET_ALL)
                 break
+        else:
+                print(Fore.RED +"\n{:*^40}\n".format("No ID in base!") + Style.RESET_ALL)
+                break
+
 
 def show_all():
     for i in map(lambda id: id, NOTEBASE):
@@ -130,13 +135,18 @@ def set_tag():
         print(Fore.BLUE +f"\nRecord {input_data} have new tag."+ Style.RESET_ALL)
 
 def clear_tags():
-    input_data=input(Fore.BLUE +'Please, input the note ID, to clear ALL tags: '+ Fore.GREEN + '\n>>>'+ Style.RESET_ALL)
+    
     while True:
+        input_data=input(Fore.BLUE +'Please, input the note ID, to clear ALL tags: '+ Fore.GREEN + '\n>>>'+ Style.RESET_ALL)
         if input_data in NOTEBASE.keys():
             if input(Fore.BLUE +'You shure, you want to delete tags? '+ Fore.GREEN + 'yes'+ Fore.BLUE + '/' + Fore.RED + 'no' + Fore.GREEN + '\n>>>' + Style.RESET_ALL) == "yes":
                 NOTEBASE[input_data].note_tag.clear()
                 print(Fore.RED +f"\nRecord {input_data} sucsessfuly cleanded from all tags."+ Style.RESET_ALL)
                 break
+        else:
+                print(Fore.RED +"\n{:*^40}\n".format("No ID in base!") + Style.RESET_ALL)
+                break
+        
 
 def save_handler(book=NOTEBASE):
     
@@ -230,10 +240,10 @@ def call_notebook():
 "burn" - burn base
 "change" - change note
 "show base" - show all positions in base
-"show by tags" - retun sorting by tags base
+"show by tags" - return sorting by tags base
 "tag" - add tag to note
 "clear tags" - clear ALL tags in note
-"save on HD" - exactley that'''
+"save on HD" - exactly that'''
 + Fore.GREEN + '\n>>>' + Style.RESET_ALL)
             
         for command, action in notebook_commands.items():
