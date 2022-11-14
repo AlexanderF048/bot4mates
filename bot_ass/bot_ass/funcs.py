@@ -2,6 +2,7 @@ from classes import AddressBook, Record
 import pickle
 import os
 import task11_alt
+from task6_10 import call_notebook
 
 
 def creation_adressbook():
@@ -298,7 +299,8 @@ COMMANDS = {
 'create contact' : create_contact_func,
 'remove contact' : remove_contact_func,
 'edit contact' : edit_contact_func,
-'sort by path' : sort_dir_func
+'sort by path' : sort_dir_func,
+'call notebook' : call_notebook
 }
 
 @input_error
