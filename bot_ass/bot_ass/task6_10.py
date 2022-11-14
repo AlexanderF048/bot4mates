@@ -245,14 +245,14 @@ def call_notebook():
 "clear tags" - clear ALL tags in note
 "save on HD" - exactly that'''
 + Fore.GREEN + '\n>>>' + Style.RESET_ALL)
+        
+        if input_data == "stop notes":
+            print('\nYou finished with notes.\n')
+            break
             
         for command, action in notebook_commands.items():
-            
-            if input_data == "stop notes":
-                print('\nYou finished with notes.\n')
-                break
-    
-            elif input_data == command:
+
+            if input_data == command:
                 push=notebook_commands[command]
                 push()
 
