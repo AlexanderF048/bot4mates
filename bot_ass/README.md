@@ -59,6 +59,20 @@ show all - показати всю базу контактів
 
 good bye - закінчення роботи
 
+__call notebook__ - виклик з наступним функціоналом:
+ - add note - додати новий запис
+ - stop notes - вийти з нотаток
+ - find in note - знайти слово чи фразу у записах
+ - find by tag - знайти записи з відповідним тегом
+ - delete - видалити запис
+ - burn - спалити базу нотаток
+ - change - змінити зміст нотатки
+ - show base - відобразити всю базу
+ - show by tags - Відобразити всю базу піт тегам (сортується відповідно до алфавіту, записи без тега в кінці)
+ - tag - додати тег у замітку (no limits)
+ - clear tags - очистити всі теги по запису
+ - save on HD - exactly that (формат json)               
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
