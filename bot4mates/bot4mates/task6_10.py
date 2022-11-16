@@ -5,6 +5,7 @@ from collections import UserDict
 from datetime import datetime
 import json
 from colorama import init, Fore, Back, Style#Сторонний пакет
+from task12_alt import fuzzy_match
 
 init(autoreset=True)#Для Windows 10
 
@@ -36,7 +37,7 @@ class NoteRecord(Marker):
 NOTEBASE=NoteBase()
 
 #---------------------------------------------------------------------------------------------    
-def flasher(text, speed=0.099):
+def flasher(text, speed=0.03):
     
     for i in text:
         time.sleep(speed)
@@ -247,8 +248,8 @@ def call_notebook():
 + Fore.GREEN + '\n>>>' + Style.RESET_ALL)
         
         if input_data == "stop notes":
-            print('\nYou finished with notes.\n')
-            break
+            return ('\nYou finished with notes.\n')
+            #break
             
         for command, action in notebook_commands.items():
 
@@ -257,7 +258,7 @@ def call_notebook():
                 push()
 
             elif input_data not in notebook_commands.keys():
-                flasher('Something went wrong!')
+                flasher(fuzzy_match(input_data, notebook_commands.keys()))
                 break
                 
 
