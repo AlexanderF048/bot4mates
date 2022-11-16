@@ -3,7 +3,7 @@ import pickle
 import os
 from task11_alt import sorting_dir_files
 from task6_10 import call_notebook
-from task12 import fuzzy_match
+from task12_alt import fuzzy_match
 
 
 def creation_adressbook():
