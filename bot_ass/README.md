@@ -47,36 +47,33 @@ botassistant
 
 ## Перелік команд бота
 
-hello - привітання
+- create contact - створити новий контакт
+- edit contact - редагувати контакт
+- remove contact - видалити контакт
+- find contact - знайти контакт
+- show all - показати всю базу контактів
+- birthday - додати день народження
+- sort by path - сортування файлів у папці
+- good bye, close, exit - закінчення роботи
 
-add _ім'я_ _номер телефону_ - додати новий контакт
+**call notebook** - виклик з наступним функціоналом:
 
-change _ім'я_ _старий номер телефону_ _новий номер телефону_ - змінити номер телефону
-
-phone _ім'я_ - знайти номер телефону за іменем
-
-show all - показати всю базу контактів
-
-good bye - закінчення роботи
-
-__call notebook__ - виклик з наступним функціоналом:
- - add note - додати новий запис
- - stop notes - вийти з нотаток
- - find in note - знайти слово чи фразу у записах
- - find by tag - знайти записи з відповідним тегом
- - delete - видалити запис
- - burn - спалити базу нотаток
- - change - змінити зміст нотатки
- - show base - відобразити всю базу
- - show by tags - відобразити всю базу по тегам (сортується відповідно до алфавіту, записи без тега в кінці)
- - tag - додати тег у замітку (no limits)
- - clear tags - очистити всі теги по запису
- - save on HD - exactly that (формат json) 
+- add note - додати новий запис
+- stop notes - вийти з нотаток
+- find in note - знайти слово чи фразу у записах
+- find by tag - знайти записи з відповідним тегом
+- delete - видалити запис
+- burn - спалити базу нотаток
+- change - змінити зміст нотатки
+- show base - відобразити всю базу
+- show by tags - відобразити всю базу по тегам (сортується відповідно до алфавіту, записи без тега в кінці)
+- tag - додати тег у замітку (no limits)
+- clear tags - очистити всі теги по запису
+- save on HD - exactly that (формат json)
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
