@@ -53,8 +53,8 @@ botassistant
 - find contact - знайти контакт
 - show all - показати всю базу контактів
 - birthday - додати день народження
-- sort by path - сортування файлів у папці
-- good bye, close, exit - закінчення роботи
+- sort by path - сортувати файли у папці
+- good bye, close, exit - закінчити роботу
 
 **call notebook** - виклик з наступним функціоналом:
 
