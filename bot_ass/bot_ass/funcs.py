@@ -341,7 +341,7 @@ def main():
 		def w_r():
 		    for right_word in right_words:
 			if wrong_word == right_word:
-			    return right_word
+			    return ''
 		    else:
 			return f"Your command {wrong_word} is not correct! Did you mean {close_to_right_word}?"
 
