@@ -313,7 +313,7 @@ def main():
 		wrong_word = user_input
 
 		right_words = ['show all', 'birthday',
-			       'good bye', 'find contact', 'create contact', 'remove contact', 'edit contact', 'sort by path']
+			       'good bye', 'close', 'exit', 'find contact', 'create contact', 'remove contact', 'edit contact', 'sort by path']
 
 		rw_dict = {}
 		for right_word in right_words:
