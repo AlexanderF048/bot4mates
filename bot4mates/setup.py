@@ -5,9 +5,9 @@ setup(
     version='1.0',
     description='To assist your wishes',
     url='https://github.com/kpi-donar/Bot_Assistant.git',
-    author='Dream_Team',
+    author='Bot4mates',
     author_email='https://don-ar.github.io/',
     license='MIT',
-    packages=['bot_ass'],
-    entry_points={'console_scripts': ['bot-assist = bot_ass.main:main']}
+    packages=['bot4mates'],
+    entry_points={'console_scripts': ['bot_assist = bot4mates.main:main']}
 )

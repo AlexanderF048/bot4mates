@@ -69,6 +69,7 @@ __call notebook__ - виклик з наступним функціоналом:
  - tag - додати тег у замітку (no limits)
  - clear tags - очистити всі теги по запису
  - save on HD - exactly that (формат json) 
+ 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
