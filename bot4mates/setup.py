@@ -9,5 +9,6 @@ setup(
     author_email='https://don-ar.github.io/',
     license='MIT',
     packages=find_namespace_packages(),
+    install_requires=['markdown','colorama','python-dateutil','fuzzywuzzy','python-Levenshtein'],
     entry_points={'console_scripts': ['bot_assist = bot4mates.main:main']}
 )
