@@ -99,7 +99,7 @@ def delete_note():
 
     if input_data in NOTEBASE.keys():
         NOTEBASE.pop(input_data)
-    print(Fore.RED +f"\nRecord {input_data} sucsessfuly deleated."+ Style.RESET_ALL)
+    print(Fore.RED +f"\nRecord {input_data} sucсessfuly deleated."+ Style.RESET_ALL)
 
 def burn_base():
     NOTEBASE.clear()
@@ -111,7 +111,7 @@ def change_note():
         input_data=input(Fore.BLUE +'Please, input the note ID, you want to de changed:'+ Fore.GREEN + '\n>>>'+ Style.RESET_ALL)
         if input_data in NOTEBASE.keys():
             input_data_2=input(Fore.BLUE +'Please, input new content:'+ Fore.GREEN + '\n>>>'+ Style.RESET_ALL)
-            if input(Fore.BLUE +'You shure, you want to save changes? '+ Fore.GREEN + 'yes'+ Fore.BLUE + '/' + Fore.RED + 'no' + Fore.GREEN + '\n>>>' + Style.RESET_ALL) == "yes":
+            if input(Fore.BLUE +'You sure, you want to save changes? '+ Fore.GREEN + 'yes'+ Fore.BLUE + '/' + Fore.RED + 'no' + Fore.GREEN + '\n>>>' + Style.RESET_ALL) == "yes":
                 NOTEBASE[input_data].note_data=input_data_2
                 print(Fore.BLUE +f"\nRecord {input_data} sucsessfuly changed."+ Style.RESET_ALL)
                 break
@@ -139,9 +139,9 @@ def clear_tags():
     while True:
         input_data=input(Fore.BLUE +'Please, input the note ID, to clear ALL tags: '+ Fore.GREEN + '\n>>>'+ Style.RESET_ALL)
         if input_data in NOTEBASE.keys():
-            if input(Fore.BLUE +'You shure, you want to delete tags? '+ Fore.GREEN + 'yes'+ Fore.BLUE + '/' + Fore.RED + 'no' + Fore.GREEN + '\n>>>' + Style.RESET_ALL) == "yes":
+            if input(Fore.BLUE +'You sure, you want to delete tags? '+ Fore.GREEN + 'yes'+ Fore.BLUE + '/' + Fore.RED + 'no' + Fore.GREEN + '\n>>>' + Style.RESET_ALL) == "yes":
                 NOTEBASE[input_data].note_tag.clear()
-                print(Fore.RED +f"\nRecord {input_data} sucsessfuly cleanded from all tags."+ Style.RESET_ALL)
+                print(Fore.RED +f"\nRecord {input_data} sucсessfuly cleaned from all tags."+ Style.RESET_ALL)
                 break
         else:
                 print(Fore.RED +"\n{:*^40}\n".format("No ID in base!") + Style.RESET_ALL)
