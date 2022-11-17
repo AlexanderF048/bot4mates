@@ -5,7 +5,7 @@ from collections import UserDict
 from datetime import datetime
 import json
 from colorama import init, Fore, Back, Style#Сторонний пакет
-from textmatch import fuzzy_match
+from bot4matestextmatch import fuzzy_match
 
 init(autoreset=True)#Для Windows 10
 

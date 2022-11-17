@@ -1,9 +1,9 @@
-from classes import AddressBook, Record
+from bot4mates.classes import AddressBook, Record
 import pickle
 import os
-from ordered_folders import sorting_dir_files
-from notebook import call_notebook
-from textmatch import fuzzy_match
+from bot4mates.ordered_folders import sorting_dir_files
+from bot4mates.notebook import call_notebook
+from bot4mates.textmatch import fuzzy_match
 
 
 def creation_adressbook():

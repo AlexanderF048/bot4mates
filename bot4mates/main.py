@@ -1,6 +1,8 @@
-from funcs import creation_adressbook, choose_command
+from bot4mates.funcs import creation_adressbook, choose_command
 
-
-if __name__ == '__main__':
+def main():
 	creation_adressbook()
 	choose_command()
+
+if __name__ == '__main__':
+	main()
