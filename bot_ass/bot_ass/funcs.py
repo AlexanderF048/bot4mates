@@ -1,8 +1,9 @@
 from classes import AddressBook, Record
 import pickle
 import os
-import task11_alt
+from task11_alt import sorting_dir_files
 from task6_10 import call_notebook
+from task12_alt import fuzzy_match
 
 
 def creation_adressbook():
@@ -19,15 +20,15 @@ def input_error(handler):
 		try:
 			return handler(*args, **kargs)
 		except KeyError:
-			return 'Enter user name'
+			return 'Mistyping. Try again!'
 		except ValueError:
-			return 'Give me name and phone please'
+			return 'Mistyping. Try again!'
 		except IndexError:
-			return 'Try again'
+			return 'Mistyping. Try again!'
 		except TypeError:
-			return 'Give me name and phone please'
+			return 'Mistyping. Try again!'
 		except OSError:
-			return 'Paste link in correct format e.g.: C:\\foo\\bar '
+			return 'Paste link in correct format e.g.: C:\\foo\\bar without "quotes"'
 	return wrapper
 
 
@@ -58,28 +59,15 @@ def create_contact_func():
 	if email:
 		record.add_email(email)
 	CONTACTS.add_record(record)
-	return f'Contact created: Name - {name}, Phone - {phone}, \
-	Birthday - {birthday}, Address - {address}, Email - {email}'
+	return repr(record)
 
 
 @input_error
 def show_all_func():
-	contact_book = []
-	for key, value in CONTACTS.items():
-		contact = {'name' : key}
-		if value.phones:
-			contact_phone = []
-			for phone in value.phones:
-				contact_phone.append(phone.value)
-			contact['phones'] = contact_phone
-		if value.birthday:
-			contact['birthday'] = value.birthday.value
-		if value.address:
-			contact['address'] = value.address.value
-		if value.email:
-			contact['email'] = value.email.value
-		contact_book.append(contact)
-	if contact_book:
+	if CONTACTS:
+		contact_book = []
+		for record in CONTACTS.values():
+			contact_book.append([repr(record)])
 		return contact_book
 	else:
 		return "The AdressBook is empty!"
@@ -172,18 +160,18 @@ def remove_email(name, record):
 
 @input_error
 def search_contacts_func():
-	data = input('Please type any "text" and I will find show you all relevant contacts with this text: ')
+	data = input('Please type any "text" and I will find all relevant Contacts with this text: ')
 	return CONTACTS.search_contacts(data.strip())
 
 
 @input_error
 def birthday_exact_date():
-	days = int(input('Input the number of days and I will show you the list of contacts with the Birthday in that day: '))
+	days = int(input('Input the number of days from today and I will show you the list of contacts with the Birthday through this number of days: '))
 	birthday_list = []
-	for name, record in CONTACTS.items():
+	for record in CONTACTS.values():
 		if record.birthday:
 			if record.days_birthday() == days:
-				birthday_list.append([name, record])
+				birthday_list.append([record])
 	if birthday_list:
 		return birthday_list
 	else:
@@ -209,7 +197,7 @@ add/edit/remove birthday\nadd/edit/remove email\nadd/edit/remove address: \n')
 		if command == 'add phone':
 			new_phone = input(f"Type the additional phone for | {name} |: ")
 			add_phone_func(name, new_phone)
-			return f"Phone {new_phone} added to the {name}!"
+			return f"{name} has a list of phones {CONTACTS[name].phones}!"
 		if command == 'edit phone':
 			old_phone = input(f"Type the old phone for | {name} |: ")
 			new_phone = input(f"Type the new phone for | {name} |: ")
@@ -255,7 +243,8 @@ add/edit/remove birthday\nadd/edit/remove email\nadd/edit/remove address: \n')
 @input_error
 def sort_dir_func():
 	path = input('Please paste the "path" to the folder to sort it: ')
-	task11_alt.sorting_dir_files(path)
+	sorting_dir_files(path)
+	return '\nFolder ordered'
 
 
 def change_input(user_input):
@@ -291,29 +280,32 @@ def create_data(data):
 			birthday += value
 	return name, phones, birthday
 
+
+def check_input_data(user_input):
+	if user_input in COMMANDS:
+		return change_input(user_input)
+	else:
+		return fuzzy_match(user_input, COMMANDS.keys())
+
+
+
 COMMANDS = {
-'show all': show_all_func,
-'birthday' : birthday_exact_date,
-'good bye': quit_func, 'close': quit_func, 'exit': quit_func,
-'find contact': search_contacts_func,
 'create contact' : create_contact_func,
-'remove contact' : remove_contact_func,
 'edit contact' : edit_contact_func,
+'remove contact' : remove_contact_func,
+'show all': show_all_func,
+'find contact': search_contacts_func,
+'birthday' : birthday_exact_date,
 'sort by path' : sort_dir_func,
-'call notebook' : call_notebook
+'call notebook' : call_notebook,
+'exit': quit_func,
 }
 
 @input_error
-def main():
+def choose_command():
 	while True:
 		user_input = input(f'Enter command from list: {[key for key in COMMANDS.keys()]}: ')
-		result = change_input(user_input)
+		result = check_input_data(user_input)
 		print(result)
-	
 		if result == 'Good bye!':
 			break
-
-
-if __name__ == '__main__':
-	creation_adressbook()
-	main()
