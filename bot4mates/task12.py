@@ -1,7 +1,6 @@
 wrong_word = input("You: ")
 right_words = ['phone', 'change', 'add', 'show', 'exit', 'good bye']
 
-
 rw_dict = {}
 for right_word in right_words:
     sum_lit = 0
